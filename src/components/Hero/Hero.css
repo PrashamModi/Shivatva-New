@@ -1,0 +1,175 @@
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg-primary);
+}
+
+/* Background gradient overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(226, 183, 20, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 60%, rgba(224, 123, 57, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 var(--space-lg);
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-label .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: pulse-glow 2s infinite;
+}
+
+.hero-title {
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: var(--space-md);
+  min-height: 1.2em;
+}
+
+.hero-title .typed-text {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title .cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background: var(--color-accent);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 0.8s infinite;
+}
+
+/* Hand-drawn underline */
+.hero-title .underline-word {
+  position: relative;
+  display: inline-block;
+  -webkit-text-fill-color: var(--color-accent);
+}
+
+.hero-title .underline-word svg {
+  position: absolute;
+  bottom: -8px;
+  left: -5%;
+  width: 110%;
+  height: 14px;
+  overflow: visible;
+}
+
+.hero-title .underline-word svg path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+}
+
+.hero-title .underline-word.animate svg path {
+  animation: draw-underline 1s ease forwards;
+}
+
+.hero-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 2s;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 2.3s;
+}
+
+/* Ember particles container */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 3s;
+}
+
+.hero-scroll-indicator span {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: float 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    letter-spacing: -1px;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+  }
+}

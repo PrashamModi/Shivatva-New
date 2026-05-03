@@ -1,0 +1,110 @@
+/* ---------- Coal Showcase Section ---------- */
+.coal-showcase {
+  position: relative;
+  padding: var(--space-3xl) 0;
+  background: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+.coal-showcase::before {
+  content: '';
+  position: absolute;
+  bottom: -300px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-ember-glow) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.coal-showcase-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.coal-showcase-header h2 {
+  font-size: var(--fs-h2);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.coal-showcase-header h2 span {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-ember));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coal-showcase-header p {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.coal-showcase-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  min-height: 500px;
+  position: relative;
+}
+
+.card-swap-wrapper {
+  position: relative;
+  width: 420px;
+  height: 340px;
+}
+
+/* Navigation arrows */
+.coal-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-light);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.coal-nav-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.1);
+}
+
+.coal-nav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Controls bar */
+.coal-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .coal-showcase-body {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .coal-nav-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .card-swap-wrapper {
+    width: 320px;
+    height: 280px;
+  }
+}

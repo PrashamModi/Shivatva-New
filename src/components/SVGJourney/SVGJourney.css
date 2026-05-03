@@ -1,0 +1,27 @@
+/* ---------- SVG Journey Line ---------- */
+.svg-journey {
+  position: relative;
+  width: 100%;
+  padding: var(--space-xl) 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.svg-journey svg {
+  width: 100%;
+  height: 120px;
+  overflow: visible;
+}
+
+.svg-journey .journey-path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px var(--color-accent-glow));
+}
+
+.svg-journey .journey-dot {
+  fill: var(--color-accent);
+  filter: drop-shadow(0 0 8px var(--color-accent));
+}

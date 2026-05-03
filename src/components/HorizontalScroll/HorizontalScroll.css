@@ -1,0 +1,97 @@
+/* ---------- Auto-Scrolling Marquee Ticker ---------- */
+.marquee-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-2xl) 0;
+  cursor: grab;
+  user-select: none;
+}
+
+.marquee-section:active {
+  cursor: grabbing;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.ticker-word {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  padding: 0 0.3em;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.ticker-word.highlight {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-ember));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Inline SVG decorations */
+.ticker-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 0.5em;
+  color: var(--color-accent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ticker-icon svg {
+  width: clamp(28px, 4vw, 48px);
+  height: clamp(28px, 4vw, 48px);
+}
+
+/* Separator between duplicated content */
+.ticker-separator {
+  flex-shrink: 0;
+  padding: 0 2em;
+  pointer-events: none;
+}
+
+.ticker-separator span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+/* Gradient fade edges */
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg-secondary), transparent);
+}
+
+.marquee-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg-secondary), transparent);
+}
